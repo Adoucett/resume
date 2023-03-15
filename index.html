@@ -1,145 +1,149 @@
 <html>
+
 <head>
-    <title>My Resume Website</title>
-    <style>
-body {
-    font-family: Roboto;
-    margin: 0;
-}
-.header {
-    background: linear-gradient(to right, #8e2de2, #4a00e0);
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-.nav {
-    background: linear-gradient(to right, #4a00e0, #8e2de2);
-    padding: 10px;
-}
-.nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding-left: 0;
-}
-.nav li {
-    display:inline-block;
-}
-.nav li a {
-    color:white;
-        }
-        .content {
-            padding :20px
-        }
-        
-         /* Add some style for the map */
-         #map {
-           height: 400px; /* The height is 400 pixels */
-           width: 100%; /* The width is the width of the web page */
-         }
-
-    </style>
+	<title>My Resume Website</title>
+	<style>
+	body {
+		font-family: Roboto;
+		margin: 0;
+	}
+	
+	.header {
+		background: linear-gradient(to right, #8e2de2, #4a00e0);
+		color: white;
+		padding: 20px;
+		text-align: center;
+	}
+	
+	.nav {
+		background: linear-gradient(to right, #4a00e0, #8e2de2);
+		padding: 10px;
+	}
+	
+	.nav ul {
+		list-style-type: none;
+		margin: 0;
+		padding-left: 0;
+	}
+	
+	.nav li {
+		display: inline-block;
+	}
+	
+	.nav li a {
+		color: white;
+	}
+	
+	.content {
+		padding: 20px
+	}
+	/* Add some style for the map */
+	
+	#map {
+		height: 400px;
+		/* The height is 400 pixels */
+		width: 100%;
+		/* The width is the width of the web page */
+	}
+	</style>
 </head>
+
 <body>
-    <div class="header">
-        <h1>My Resume Website</h1>
-    </div>
-    <div class="nav">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-  <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
-    <div class="content">
-        <h2 id="home">Home</h2>
-        <p>Welcome to my resume website. I am a web developer with experience in Google Maps Platform.</p>
-
-  
-// Load the Google Maps JavaScript API script
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQQLUPtaWmO9cmq20itxtXyyx4-5IIGdE&callback=initMap&v=beta"></script>
-
-  
-// Create a div element for the map
-<div id="map" style="width: 600px; height: 400px;"></div>
-
-// Create a script element for the map logic
-<script>
-  // Define an array of locations with latitude, longitude and title
-  var locations = [
-    {lat: 42.3584, lng: -71.0542, title: "33 Broad Street, Boston, MA"},
-    {lat: 42.3868, lng: -72.5301, title: "University of MASSACHUSETTS, Amherst"},
-    {lat: 42.3586, lng: -71.0609, title: "1 Beacon Street, Boston MA"},
-    {lat: 42.3484, lng: -71.0860, title: "355 Newbury Street, Boston MA"}
-  ];
-
-  // Initialize the map and center it on Boston
-  var map = new google.maps.Map(document.getElementById("map"), {
-    center: {lat: 42.3601, lng:-71.0589},
-    zoom: 10
-  });
-
-  // Loop through the locations array and create markers for each location
-  for (var i = 0; i < locations.length; i++) {
-    var location = locations[i];
-    var marker = new google.maps.Marker({
-      position: location,
-      map: map,
-      title: location.title
-    });
-
-    // Add a click event listener to each marker to show an info window with the title
-    marker.addListener("click", function() {
-      var infoWindow = new google.maps.InfoWindow({
-        content: this.title
-      });
-      infoWindow.open(map, this);
-    });
-  }
-</script>
-
-
-        <h2 id="about">About</h2>
-        <p>
-
-I love geospatial technology and I enjoy using my skills and creativity to help clients achieve their goals. I have worked as a sales engineer and a creative director for some of the top companies in the industry, where I gained experience in visual design, brand management, multimedia production, technical consultation, problem-solving, and customer relationship management. I can explain complex technical concepts in simple and engaging ways through visual communication and storytelling. I'm always eager to create eye-catching marketing materials, lead informative webinars, and learn about the latest geospatial innovations to drive business development.
-
-</p>
-
-        <h2 id="skills">Skills</h2>
-        <ul>
-          <li>HTML/CSS/JavaScript</li>
-          <li>Google Maps Platform APIs and SDKs</li>
-          <li>React/Angular/Vue</li>
-          <li>Node.js/Express/MongoDB</li>
-          <li>AWS/GCP/Firebase</li>
-        </ul>
-
-        <h2 id="projects">Projects</h2>
-        <p>Here are some of the projects that I have worked on using Google Maps Platform:</p>
-        <ol>
-          <li><a href="https://example.com/travel-planner">Travel Planner</a>: A web app that helps users plan their trips by showing them the best routes, attractions, hotels, and restaurants on a map.</li>
-                    <li><a href="https://example.com/real-estate">Real Estate</a>: A web app that helps users find and compare properties for sale or rent on a map.</li>
-          <li><a href="https://example.com/delivery-service">Delivery Service</a>: A web app that helps users order food or goods online and track their delivery status on a map.</li>
-        </ol>
-
-        <h2 id="contact">Contact</h2>
-        <p>If you are interested in hiring me or collaborating with me on a project, please feel free to contact me using the form below:</p>
-        <form action="https://example.com/send-email" method="POST">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required><br>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required><br>
-          <label for="subject">Subject:</label>
-          <input type="text" id="subject" name="subject"><br>
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="5"></textarea><br>
-          <button type ="submit">Send</button>
-        </form>
-
-    </div>
-
+	<div class="header">
+		<h1>My Resume Website</h1> </div>
+	<div class="nav">
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#skills">Skills</a></li>
+			<li><a href="#projects">Projects</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<h2 id="home">Home</h2>
+		<p>Welcome to my resume website. I am a web developer with experience in Google Maps Platform.</p> // Load the Google Maps JavaScript API script
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQQLUPtaWmO9cmq20itxtXyyx4-5IIGdE&callback=initMap&v=beta"></script> // Create a div element for the map
+		<div id="map" style="width: 600px; height: 400px;"></div> // Create a script element for the map logic
+		<script>
+		// Define an array of locations with latitude, longitude and title
+		var locations = [{
+			lat: 42.3584,
+			lng: -71.0542,
+			title: "33 Broad Street, Boston, MA"
+		}, {
+			lat: 42.3868,
+			lng: -72.5301,
+			title: "University of MASSACHUSETTS, Amherst"
+		}, {
+			lat: 42.3586,
+			lng: -71.0609,
+			title: "1 Beacon Street, Boston MA"
+		}, {
+			lat: 42.3484,
+			lng: -71.0860,
+			title: "355 Newbury Street, Boston MA"
+		}];
+		// Initialize the map and center it on Boston
+		var map = new google.maps.Map(document.getElementById("map"), {
+			center: {
+				lat: 42.3601,
+				lng: -71.0589
+			},
+			zoom: 10
+		});
+		// Loop through the locations array and create markers for each location
+		for(var i = 0; i < locations.length; i++) {
+			var location = locations[i];
+			var marker = new google.maps.Marker({
+				position: location,
+				map: map,
+				title: location.title
+			});
+			// Add a click event listener to each marker to show an info window with the title
+			marker.addListener("click", function() {
+				var infoWindow = new google.maps.InfoWindow({
+					content: this.title
+				});
+				infoWindow.open(map, this);
+			});
+		}
+		</script>
+		<h2 id="about">About</h2>
+		<p> I love geospatial technology and I enjoy using my skills and creativity to help clients achieve their goals. I have worked as a sales engineer and a creative director for some of the top companies in the industry, where I gained experience in visual design, brand management, multimedia production, technical consultation, problem-solving, and customer relationship management. I can explain complex technical concepts in simple and engaging ways through visual communication and storytelling. I'm always eager to create eye-catching marketing materials, lead informative webinars, and learn about the latest geospatial innovations to drive business development. </p>
+		<h2 id="skills">Skills</h2>
+		<ul>
+			<li>HTML/CSS/JavaScript</li>
+			<li>Google Maps Platform APIs and SDKs</li>
+			<li>React/Angular/Vue</li>
+			<li>Node.js/Express/MongoDB</li>
+			<li>AWS/GCP/Firebase</li>
+		</ul>
+		<h2 id="projects">Projects</h2>
+		<p>Here are some of the projects that I have worked on using Google Maps Platform:</p>
+		<ol>
+			<li><a href="https://example.com/travel-planner">Travel Planner</a>: A web app that helps users plan their trips by showing them the best routes, attractions, hotels, and restaurants on a map.</li>
+			<li><a href="https://example.com/real-estate">Real Estate</a>: A web app that helps users find and compare properties for sale or rent on a map.</li>
+			<li><a href="https://example.com/delivery-service">Delivery Service</a>: A web app that helps users order food or goods online and track their delivery status on a map.</li>
+		</ol>
+		<h2 id="contact">Contact</h2>
+		<p>If you are interested in hiring me or collaborating with me on a project, please feel free to contact me using the form below:</p>
+		<form action="https://example.com/send-email" method="POST">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required>
+			<br>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required>
+			<br>
+			<label for="subject">Subject:</label>
+			<input type="text" id="subject" name="subject">
+			<br>
+			<label for="message">Message:</label>
+			<textarea id="message" name="message" rows="5"></textarea>
+			<br>
+			<button type="submit">Send</button>
+		</form>
+	</div>
 </body>
 
-</html> 
+</html>
