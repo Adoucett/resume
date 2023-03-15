@@ -83,21 +83,8 @@
 			zoom: 10
 		});
 		// Loop through the locations array and create markers for each location
-		for(var i = 0; i < locations.length; i++) {
-			var location = locations[i];
-			var marker = new google.maps.Marker({
-				position: location,
-				map: map,
-				title: location.title
-			});
-			// Add a click event listener to each marker to show an info window with the title
-			marker.addListener("click", function() {
-				var infoWindow = new google.maps.InfoWindow({
-					content: this.title
-				});
-				infoWindow.open(map, this);
-			});
-		}
+
+	
 		</script>
 
 
