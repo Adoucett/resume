@@ -56,72 +56,49 @@ body {
         <h2 id="home">Home</h2>
         <p>Welcome to my resume website. I am a web developer with experience in Google Maps Platform.</p>
 
-        <!-- The div element for the map -->
-        <div id="map"></div>
+  
+// Load the Google Maps JavaScript API script
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQQLUPtaWmO9cmq20itxtXyyx4-5IIGdE&callback=initMap&v=beta"></script>
 
-        <!-- Load the Google Maps API in a script tag -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQQLUPtaWmO9cmq20itxtXyyx4-5IIGdE></script>
+  
+// Create a div element for the map
+<div id="map" style="width: 600px; height: 400px;"></div>
 
-        <!-- Add some JavaScript to instantiate and customize the map -->
-        <script>
-          // Initialize and add the map
-          function initMap() {
-            // The location of New York
-            const ny = { lat: 40.7128, lng: -74.0060 };
-            // The location of London
-            const london = { lat: 51.5074, lng: -0.1278 };
-            // The location of Tokyo
-            const tokyo = { lat: 35.6762, lng: 139.6503 };
-            
-            // The content for each info window
-            const contentNY = "<h3>New York</h3><p>I worked as a software engineer at Google from 2019 to 2021.</p>";
-            const contentLondon = "<h3>London</h3><p>I worked as a product manager at Google from 2017 to 2019.</p>";
-            const contentTokyo = "<h3>Tokyo</h3><p>I worked as a data analyst at Google from 2015 to 2017.</p>";
-    // Create new info windows for each location
-            const infowindowNY = new google.maps.InfoWindow({
-              content: contentNY,
-            });
-            const infowindowLondon = new google.maps.InfoWindow({
-              content: contentLondon,
-            });
-            const infowindowTokyo = new google.maps.InfoWindow({
-              content: contentTokyo,
-            });
+// Create a script element for the map logic
+<script>
+  // Define an array of locations with latitude, longitude and title
+  var locations = [
+    {lat: 42.3584, lng: -71.0542, title: "33 Broad Street, Boston, MA"},
+    {lat: 42.3868, lng: -72.5301, title: "University of MASSACHUSETTS, Amherst"},
+    {lat: 42.3586, lng: -71.0609, title: "1 Beacon Street, Boston MA"},
+    {lat: 42.3484, lng: -71.0860, title: "355 Newbury Street, Boston MA"}
+  ];
 
-            // The map, centered at New York
-            const map = new google.maps.Map(document.getElementById("map"), {
-              zoom: 2,
-              center: ny,
-            });
-            
-            // The markers, positioned at each location
-            const markerNY = new google.maps.Marker({
-              position: ny,
-              map: map,
-              title: "New York",
-            });
-            const markerLondon = new google.maps.Marker({
-              position: london,
-              map: map,
-              title: "London",
-            });
-            const markerTokyo = new google.maps.Marker({
-              position: tokyo,
-              map: map,
-              title: "Tokyo",
-            });
-     // Add listeners for each marker to open the corresponding info window
-            markerNY.addListener("click", () => {
-              infowindowNY.open(map, markerNY);
-            });
-            markerLondon.addListener("click", () => {
-              infowindowLondon.open(map, markerLondon);
-            });
-            markerTokyo.addListener("click", () => {
-              infowindowTokyo.open(map, markerTokyo);
-            });
-          }
-        </script>
+  // Initialize the map and center it on Boston
+  var map = new google.maps.Map(document.getElementById("map"), {
+    center: {lat: 42.3601, lng:-71.0589},
+    zoom: 10
+  });
+
+  // Loop through the locations array and create markers for each location
+  for (var i = 0; i < locations.length; i++) {
+    var location = locations[i];
+    var marker = new google.maps.Marker({
+      position: location,
+      map: map,
+      title: location.title
+    });
+
+    // Add a click event listener to each marker to show an info window with the title
+    marker.addListener("click", function() {
+      var infoWindow = new google.maps.InfoWindow({
+        content: this.title
+      });
+      infoWindow.open(map, this);
+    });
+  }
+</script>
+
 
         <h2 id="about">About</h2>
         <p>
