@@ -51,42 +51,41 @@
 <body>
 
 
-// Load the Google Maps JavaScript API script
-	
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQQLUPtaWmO9cmq20itxtXyyx4-5IIGdE&callback=initMap&v=beta"></script> // Create a div element for the map
-	<div id="map" style="width: 600px; height: 400px;"></div> // Create a script element for the map logic
-	<script>
-		// Define an array of locations with latitude, longitude and title
-		var locations = [{
-			lat: 42.3584,
-			lng: -71.0542,
-			title: "33 Broad Street, Boston, MA"
-		}, {
-			lat: 42.3868,
-			lng: -72.5301,
-			title: "University of MASSACHUSETTS, Amherst"
-		}, {
-			lat: 42.3586,
-			lng: -71.0609,
-			title: "1 Beacon Street, Boston MA"
-		}, {
-			lat: 42.3484,
-			lng: -71.0860,
-			title: "355 Newbury Street, Boston MA"
-		}];
-		// Initialize the map and center it on Boston
-		var map = new google.maps.Map(document.getElementById("map"), {
-			center: {
-				lat: 42.3601,
-				lng: -71.0589
-			},
-			zoom: 10
-		});
-		// Loop through the locations array and create markers for each location
-
-	
-		</script>
-
+ <script>
+      // Initialize and center the map on Boston, MA
+      function initMap() {
+        var boston = {lat: 42.3601, lng: -71.0589};
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 12, center: boston});
+        
+        // Add markers for the clickable locations
+        var locations = [
+          {title: '33 Broad Street', location: {lat: 42.358142, lng: -71.054694}},
+          {title: '1 Beacon Street', location: {lat: 42.358863, lng: -71.063293}},
+          {title: '350 Newbury Street', location: {lat: 42.346916, lng: -71.089503}},
+          {title: 'University of Massachusetts', location: {lat: 42.390346, lng: -72.526861}}
+        ];
+        
+        // Loop through the locations array and add markers and info windows
+        for (var i = 0; i < locations.length; i++) {
+          var marker = new google.maps.Marker({
+            position: locations[i].location,
+            map: map,
+            title: locations[i].title
+          });
+          
+          var infowindow = new google.maps.InfoWindow({
+            content: locations[i].title
+          });
+          
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+        }
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer></script>
 
 
 
