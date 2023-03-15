@@ -1,0 +1,166 @@
+<html>
+<head>
+    <title>My Resume Website</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .nav {
+            background-color: #eee;
+            padding: 10px;
+        }
+        .nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding-left: 0;
+        }
+        .nav li {
+            display:inline-block;
+        }
+        .nav li a {
+            color:#333;
+            text-decoration:none;
+            padding-right :20px
+        }
+        .content {
+            padding :20px
+        }
+        
+         /* Add some style for the map */
+         #map {
+           height: 400px; /* The height is 400 pixels */
+           width: 100%; /* The width is the width of the web page */
+         }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>My Resume Website</h1>
+    </div>
+    <div class="nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+  <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2 id="home">Home</h2>
+        <p>Welcome to my resume website. I am a web developer with experience in Google Maps Platform.</p>
+
+        <!-- The div element for the map -->
+        <div id="map"></div>
+
+        <!-- Load the Google Maps API in a script tag -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+
+        <!-- Add some JavaScript to instantiate and customize the map -->
+        <script>
+          // Initialize and add the map
+          function initMap() {
+            // The location of New York
+            const ny = { lat: 40.7128, lng: -74.0060 };
+            // The location of London
+            const london = { lat: 51.5074, lng: -0.1278 };
+            // The location of Tokyo
+            const tokyo = { lat: 35.6762, lng: 139.6503 };
+            
+            // The content for each info window
+            const contentNY = "<h3>New York</h3><p>I worked as a software engineer at Google from 2019 to 2021.</p>";
+            const contentLondon = "<h3>London</h3><p>I worked as a product manager at Google from 2017 to 2019.</p>";
+            const contentTokyo = "<h3>Tokyo</h3><p>I worked as a data analyst at Google from 2015 to 2017.</p>";
+    // Create new info windows for each location
+            const infowindowNY = new google.maps.InfoWindow({
+              content: contentNY,
+            });
+            const infowindowLondon = new google.maps.InfoWindow({
+              content: contentLondon,
+            });
+            const infowindowTokyo = new google.maps.InfoWindow({
+              content: contentTokyo,
+            });
+
+            // The map, centered at New York
+            const map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 2,
+              center: ny,
+            });
+            
+            // The markers, positioned at each location
+            const markerNY = new google.maps.Marker({
+              position: ny,
+              map: map,
+              title: "New York",
+            });
+            const markerLondon = new google.maps.Marker({
+              position: london,
+              map: map,
+              title: "London",
+            });
+            const markerTokyo = new google.maps.Marker({
+              position: tokyo,
+              map: map,
+              title: "Tokyo",
+            });
+     // Add listeners for each marker to open the corresponding info window
+            markerNY.addListener("click", () => {
+              infowindowNY.open(map, markerNY);
+            });
+            markerLondon.addListener("click", () => {
+              infowindowLondon.open(map, markerLondon);
+            });
+            markerTokyo.addListener("click", () => {
+              infowindowTokyo.open(map, markerTokyo);
+            });
+          }
+        </script>
+
+        <h2 id="about">About</h2>
+        <p>My name is John Doe and I am a web developer with 8 years of experience. I have a bachelor's degree in computer science from MIT and a master's degree in software engineering from Stanford. I am passionate about creating innovative and user-friendly web applications using Google Maps Platform.</p>
+
+        <h2 id="skills">Skills</h2>
+        <ul>
+          <li>HTML/CSS/JavaScript</li>
+          <li>Google Maps Platform APIs and SDKs</li>
+          <li>React/Angular/Vue</li>
+          <li>Node.js/Express/MongoDB</li>
+          <li>AWS/GCP/Firebase</li>
+        </ul>
+
+        <h2 id="projects">Projects</h2>
+        <p>Here are some of the projects that I have worked on using Google Maps Platform:</p>
+        <ol>
+          <li><a href="https://example.com/travel-planner">Travel Planner</a>: A web app that helps users plan their trips by showing them the best routes, attractions, hotels, and restaurants on a map.</li>
+                    <li><a href="https://example.com/real-estate">Real Estate</a>: A web app that helps users find and compare properties for sale or rent on a map.</li>
+          <li><a href="https://example.com/delivery-service">Delivery Service</a>: A web app that helps users order food or goods online and track their delivery status on a map.</li>
+        </ol>
+
+        <h2 id="contact">Contact</h2>
+        <p>If you are interested in hiring me or collaborating with me on a project, please feel free to contact me using the form below:</p>
+        <form action="https://example.com/send-email" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required><br>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required><br>
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" name="subject"><br>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5"></textarea><br>
+          <button type ="submit">Send</button>
+        </form>
+
+    </div>
+
+</body>
+
+</html> 
